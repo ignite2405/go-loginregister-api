@@ -1,0 +1,7 @@
+1. Ini contoh jika package di pisah
+2. Untuk cara jalaninnya sama, go mod init dulu, install dependency2-nya pake go get nama_dependency, trus bisa pake go build untuk bikin exe-nya
+3. tar jalaninnya pake cli command .\namaexe.exe
+4. intinya kalo mau bisa berhubungan antar package, musti di import dlu packagenya trus function yang bisa dipanggil tu yang huruf depannya kapital. 
+5. path selalu di baca mulai dari src. jadi kalo programnya ada di dalem folder github.com/ignite2405/nama_project/nama_folder_package, berarti yang musti di import adalah "github.com/ignite2405/nama_project/nama_folder_package"
+6. jangan lupa setelah di import, cara implementasinya tu nama_package.NamaFunction
+7. Same goes for models (struct)

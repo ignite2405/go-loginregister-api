@@ -1,4 +1,4 @@
-module github.com/ignite2405/go-rest-api
+module github.com/ignite2405/login-regis
 
 go 1.13
 

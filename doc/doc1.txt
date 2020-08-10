@@ -1,0 +1,109 @@
+1. Database menggunakan MySQL dari xampp
+- user dan pass root phpmyadmin/mysql : root abc123
+- port yang digunakan : 3306
+- nama db = user_demo
+
+2. Struktur tabel yang digunakan : 
+=======================================================================
+CREATE TABLE `users` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `name` varchar(200) COLLATE utf8_bin NOT NULL,
+ `email` varchar(50) COLLATE utf8_bin NOT NULL,
+ `password` varchar(200) COLLATE utf8_bin NOT NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+=======================================================================
+
+3. dependencies : 
+- pada folder program, jalankan go mod init
+- install dependency2 sebagai berikut dengan command "go get": 
+-> github.com/gorilla/mux
+-> github.com/go-sql-driver/mysql
+- cek dengan command "cat go.mod"
+
+4. untuk menjalankan program, letakkan pada go workspace dalam folder src, buka folder tersebut, 
+buka xampp dan aktifkan apache serta mysql, lalu 
+lakukan salah satu di antara kedua langkah ini : 
+langkah 1 = 
+-> buka bash dan arahkan ke folder program tersebut 
+-> jalankan command "go run ."
+-> tes api melalui postman
+langkah 2 = 
+-> buka bash dan arahkan ke folder program tersebut 
+-> jalankan command "go build"
+-> program sekarang dapat di jalankan kapan saja dengan meng-execute .exe file atau dengan menjalankan 
+command "./nama-exe.exe"
+-> tes api melalui postman
+
+5. Contoh Request Body untuk api register 
+(
+url = localhost:8000/register
+method = POST
+)
+==================================
+{
+    "name": "new name",
+    "email": "new_email@mail.com",
+    "password": "new_password"
+}
+==================================
+
+6. Contoh reponse body bila sukses register
+=============================================
+{
+    "status": 1,
+    "message": "Successfully Added New User",
+    "Data": [
+        {
+            "name": "new name",
+            "email": "new_email@mail.com",
+            "password": ""
+        }
+    ]
+}
+=============================================
+
+7. contoh response body bila email sudah pernah dipakai untuk registrasi
+============================================
+{
+    "status": 0,
+    "message": "this email is already used",
+    "Data": null
+}
+============================================
+
+8. Contoh Request Body untuk api Login
+(
+url = localhost:8000/login
+method = POST
+)
+==================================
+{
+    "email": "new_email@mail.com",
+    "password": "new_password"
+}
+================================== 
+
+9. contoh response body berhasil login 
+===========================================
+{
+    "status": 1,
+    "message": "Successfully Logged in",
+    "Data": [
+        {
+            "name": "new name",
+            "email": "new_email@mail.com",
+            "password": ""
+        }
+    ]
+}
+===========================================
+
+10. contoh response body gagal login
+=========================================
+{
+    "status": 0,
+    "message": "wrong email or password",
+    "Data": null
+}
+=========================================
