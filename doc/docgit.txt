@@ -1,0 +1,12 @@
+=============
+cara init git
+=============
+1. buat project baru di github
+2. ke folder project trus buka git bash
+3. ketik 'git init'
+4. ketik 'git add .'
+5. ketik 'git commit -m "initial commit"'
+6. ambil url https dari project yang baru di buat di github tadi
+7. ketik 'git remote add origin remote repository url_https_tadi' atau 'git remote add origin url_https_tadi'
+8. cek dengan ketik 'git remote -v'
+9. ketik 'git push -f origin master' atau 'git push -u origin master'
